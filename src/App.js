@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -7,6 +6,14 @@ class App extends Component {
     super(props);
     this.state = {};
   }
+
+  handleClick = () => {
+    if(this.state.input === '3'){
+      this.setState({result: 'fizz'});
+    } else {
+      this.setState({result: 10});
+    }
+  };
 
   render() {
     return (
@@ -16,7 +23,7 @@ class App extends Component {
           <p>
             {this.state.result}
           </p>
-          <button onClick={() => {this.setState({result: 10})}}/>
+          <button onClick={this.handleClick}/>
         </header>
       </div>
     );

@@ -21,4 +21,20 @@ defineFeature(feature, test => {
           expect(wrapper.find('p').text()).toEqual('10');
        });
    });
+
+    test('Returns fizz when given a number divisible by three', ({ given, when, then }) => {
+        const wrapper = mount(<App/>);
+
+        given('Input contains 3', () => {
+            wrapper.find('input').simulate('change', { target: { value: '3' }});
+        });
+
+        when('I click submit', () => {
+            wrapper.find('button').simulate('click');
+        });
+
+        then('fizz is displayed', () => {
+            expect(wrapper.find('p').text()).toEqual('fizz');
+        });
+    });
 });

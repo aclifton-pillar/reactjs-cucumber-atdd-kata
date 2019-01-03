@@ -7,3 +7,8 @@ Feature: FizzBuzz
     Given Input contains 10
     When I click submit
     Then 10 is displayed
+
+  Scenario: Returns fizz when given a number divisible by three
+    Given Input contains 3
+    When I click submit
+    Then fizz is displayed

@@ -69,4 +69,20 @@ defineFeature(feature, test => {
             expect(wrapper.find('p').text()).toEqual('buzz');
         });
     });
+
+    test('Returns fizzbuzz when given a number divisible by three and five', ({ given, when, then }) => {
+        const wrapper = mount(<App/>);
+
+        given('Input contains 30', () => {
+            wrapper.find('input').simulate('change', { target: { value: '30' }});
+        });
+
+        when('I click submit', () => {
+            wrapper.find('button').simulate('click');
+        });
+
+        then('fizzbuzz is displayed', () => {
+            expect(wrapper.find('p').text()).toEqual('fizzbuzz');
+        });
+    });
 });

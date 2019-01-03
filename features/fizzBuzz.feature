@@ -22,3 +22,8 @@ Feature: FizzBuzz
     Given Input contains 10
     When I click submit
     Then buzz is displayed
+
+  Scenario: Returns fizzbuzz when given a number divisible by three and five
+    Given Input contains 30
+    When I click submit
+    Then fizzbuzz is displayed

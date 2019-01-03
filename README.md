@@ -26,48 +26,44 @@ However, there are at least two reasonable choices for FizzBuzz:
 For the purposes of the this kata, you'll probably get more mileage out of the former
 but, in normal development, your tests will probably look more like the latter.
 
-You should be able to complete the kata from scratch, without Googling, in thirty
-minutes or less.
+You should be able to complete the kata from scratch, without Googling, in one hour
+or less.
 
 ### Configuring for Acceptance Testing with Cucumber
-[Install Cucumber](https://www.npmjs.com/package/react-cucumber)
+* Configure for Jest and Enzyme
+* [Install Jest Cucumber](https://www.npmjs.com/package/jest-cucumber)
+
+Create a ```features``` directory at the root of your project and, within it, a ```step_definitions``` directory.
+Your .feature files will go in features and the supporting step files will go in step_definitions.
 
 ### Gherkins
 
-* Given a user is on the Fizzbuzz form
-* When she enters any number into an input box
-* AND clicks the submit button
-* Then the number is displayed
+```
+Feature: FizzBuzz
+  As a user
+  I want to see the result of the FizzBuzz calculation
+  So that I can easily identify numbers divisible by 3 and 5
 
-* Given a user is on the Fizzbuzz form
-* When she enters 3 into an input box
-* AND clicks the submit button
-* Then the word Fizz is displayed
+  Scenario: Returns a number when given a number not divisible by 3 or 5
+    Given Input contains 17
+    When I click submit
+    Then 17 is displayed
 
-* Given a user is on the Fizzbuzz form
-* When she enters 5 into an input box
-* AND clicks the submit button
-* The word Buzz is displayed
+  Scenario: Returns fizz when given a number divisible by three
+    Given Input contains 6
+    When I click submit
+    Then fizz is displayed
 
-* Given a user is on the Fizzbuzz form
-* When she enters the number that is a multiple of 3 into an input box
-* AND clicks the submit button
-* The word Fizz is displayed
+  Scenario: Returns buzz when given a number divisible by five
+    Given Input contains 10
+    When I click submit
+    Then buzz is displayed
 
-* Given a user is on the Fizzbuzz form
-* When she enters the number that is a multiple of 5 into an input box
-* AND clicks the submit button
-* The word Buzz is displayed
-
-* Given a user is on the Fizzbuzz form
-* When she enters the number 15 into an input box
-* AND clicks the submit button
-* The word Fizzbuzz is displayed
-
-* Given a user is on the Fizzbuzz form
-* When she enters the number that is a multiple of 15 into an input box
-* AND clicks the submit button
-* The word Fizzbuzz is displayed
+  Scenario: Returns fizzbuzz when given a number divisible by three and five
+    Given Input contains 30
+    When I click submit
+    Then fizzbuzz is displayed
+```
 
 ### The Magical Wonder of FizzBuzz
 FizzBuzz is a deceptively simple programming problem used by countless

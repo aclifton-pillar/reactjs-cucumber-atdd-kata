@@ -8,10 +8,12 @@ class App extends Component {
   }
 
   handleClick = () => {
-    if(this.state.input === '3'){
+    if(parseInt(this.state.input) % 3 === 0){
       this.setState({result: 'fizz'});
+    } else if (parseInt(this.state.input) % 5 === 0) {
+      this.setState({result: 'buzz'});
     } else {
-      this.setState({result: 10});
+      this.setState({result: this.state.input});
     }
   };
 

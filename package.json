@@ -78,7 +78,8 @@
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}",
+      "<rootDir>/**/*.steps.js"
     ],
     "testEnvironment": "jsdom",
     "testURL": "http://localhost",
@@ -112,5 +113,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "jest-cucumber": "^1.0.11"
   }
 }
